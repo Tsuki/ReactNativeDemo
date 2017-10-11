@@ -1,5 +1,5 @@
 podTemplate(label: 'android', containers: [
-    containerTemplate(name: 'docker-android', image: 'natsukikana/docker-android1.2:1.2', ttyEnabled: true)
+    containerTemplate(name: 'docker-android', image: 'natsukikana/docker-android:1.2', ttyEnabled: true)
   ]) {
     node('android') {
         container('docker-android') {
