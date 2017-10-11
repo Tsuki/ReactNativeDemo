@@ -1,4 +1,4 @@
-podTemplate(label: 'android' namespace: 'natsukikana', containers: [
+podTemplate(label: 'android', namespace: 'natsukikana', containers: [
     containerTemplate(name: 'docker-android', image: 'docker-android:latest', ttyEnabled: true)
   ]) {
     node('android') {
