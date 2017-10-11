@@ -1,8 +1,8 @@
 podTemplate(label: 'android', containers: [
-    containerTemplate(name: 'android', image: 'natsukikana/docker-android:latest', ttyEnabled: true)
+    containerTemplate(name: 'docker-android', image: 'natsukikana/docker-android:latest', ttyEnabled: true)
   ]) {
     node('android') {
-        container('android') {
+        container('docker-android') {
             stage('Run Command') {
                 print 'in side node'
                 sh 'node --version'
