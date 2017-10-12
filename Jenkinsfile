@@ -5,7 +5,6 @@ pipeline {
    agent {
     label 'Mac'
    }
-   print 'in side node'
    sh 'node --version'
    sh 'gradle -v'
    sh 'hostname -f'
