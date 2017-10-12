@@ -1,5 +1,5 @@
 podTemplate(label: 'android', containers: [
-    containerTemplate(name: 'docker-android', image: 'natsukikana/docker-android:1.2', ttyEnabled: true)
+    containerTemplate(name: 'docker-android', image: 'bitriseio/docker-android', ttyEnabled: true)
   ]) {
     node('android') {
         container('docker-android') {
@@ -15,12 +15,11 @@ podTemplate(label: 'android', containers: [
                 sh 'npm install'
             }
             stage('Build - npm bundle') {
+                sh 'mkdir -p android/app/src/main/assets/'
                 sh 'npm run build-android-bundle'
             }
             stage('Build - npm bundle') {
-                dir('android'){
-                    sh 'gradle clean assembleDebug'
-                }
+                sh 'cd android && gradle clean assembleDebug'
             }
            stage('archive'){
                archiveArtifacts 'android/app/build/outputs/apk/*.apk'
