@@ -1,5 +1,6 @@
 pipeline {
- node('Mac') {
+  node('Mac') {
+ stages {
   stage('Run Command') {
    print 'in side node'
    sh 'node --version'
@@ -21,4 +22,5 @@ pipeline {
    archiveArtifacts 'android/app/build/outputs/apk/*.apk'
   }
  }
+}
 }
