@@ -1,8 +1,9 @@
 pipeline {
- stages {
-  agent {
+
+agent {
    label "Mac"
   }
+ stages {
   stage('Run Command') {
    print 'in side node'
    sh 'node --version'
