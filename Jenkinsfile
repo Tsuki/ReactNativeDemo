@@ -1,6 +1,6 @@
 pipeline {
     agent {
-     lable 'Mac'   
+     label 'Mac'   
     }
 
     stages {
