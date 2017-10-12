@@ -1,4 +1,3 @@
-
  stages {
   stage('Run Command') {
    sh 'node --version'
@@ -19,3 +18,4 @@
   stage('archive') {
    archiveArtifacts 'android/app/build/outputs/apk/*.apk'
   }
+}
