@@ -4,23 +4,33 @@ pipeline {
  }
  stages {
   stage('Run Command') {
-   sh 'node --version'
-   sh 'gradle -v'
-   sh 'hostname -f'
+   steps {
+    sh 'node --version'
+    sh 'gradle -v'
+    sh 'hostname -f'
+   }
   }
   stage('Build - check out & install') {
-   checkout scm
-   sh 'npm install'
+   steps {
+    checkout scm
+    sh 'npm install'
+   }
   }
   stage('Build - npm bundle') {
-   sh 'mkdir -p android/app/src/main/assets/'
-   sh 'npm run build-android-bundle'
+   steps {
+    sh 'mkdir -p android/app/src/main/assets/'
+    sh 'npm run build-android-bundle'
+   }
   }
   stage('Build - npm bundle') {
-   sh 'cd android && gradle clean assembleDebug'
+   steps {
+    sh 'cd android && gradle clean assembleDebug'
+   }
   }
   stage('archive') {
-   archiveArtifacts 'android/app/build/outputs/apk/*.apk'
+   steps {
+    archiveArtifacts 'android/app/build/outputs/apk/*.apk'
+   }
   }
  }
 }
