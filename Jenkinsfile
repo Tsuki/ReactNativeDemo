@@ -1,5 +1,4 @@
-pipeline {
- agent any
+
  stages {
   stage('Run Command') {
    sh 'node --version'
@@ -20,5 +19,3 @@ pipeline {
   stage('archive') {
    archiveArtifacts 'android/app/build/outputs/apk/*.apk'
   }
- }
-}
