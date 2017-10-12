@@ -22,7 +22,7 @@ pipeline {
    sh 'npm run build-android-bundle'}
   }
   stage('Build - gradle') {steps {
-   sh 'cd android && gradle clean assembleDebug'}
+   sh 'cd android && ./gradlew clean assembleDebug'}
   }
   stage('archive') {steps {
    archiveArtifacts 'android/app/build/outputs/apk/*.apk'}
